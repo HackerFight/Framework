@@ -10,9 +10,9 @@ import com.hacker.framework.cache.loader.DataLoader;
 public class CacheConfig<K, V> {
 
     //默认最大值
-    private static final int DEFAULT_MAX_SIZE = 10000;
+    public static final int DEFAULT_MAX_SIZE = 10000;
     //默认缓存失效时间（60s)
-    private static final int DEFAULT_EXPIRE_TIME = 60; //s
+    public static final int DEFAULT_EXPIRE_TIME = 60; //s
 
     //缓存名称
     private String cacheName;
