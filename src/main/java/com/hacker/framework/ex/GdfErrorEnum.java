@@ -13,6 +13,8 @@ public enum GdfErrorEnum implements ErrorCode{
     SYS_EXCEPTION("SYS_EXCEPTION", "系统异常"),
 
     TELECOM_EXCEPTION("TELECOM_EXCEPTION", "通信异常"),
+
+    CHANNEL_CONTEXT_EMPTY("CHANNEL_CONTEXT_EMPTY", "渠道上下文为空"),
     ;
 
     private String code;
