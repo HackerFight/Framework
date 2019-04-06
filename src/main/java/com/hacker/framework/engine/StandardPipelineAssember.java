@@ -1,6 +1,6 @@
 package com.hacker.framework.engine;
 
-import com.hacker.framework.CacheItemConstants;
+import com.hacker.framework.constants.CacheItemConstants;
 import com.hacker.framework.cache.CacheMap;
 import com.hacker.framework.cache.enums.ExpireTypeEnum;
 import com.hacker.framework.cache.loader.DataLoader;

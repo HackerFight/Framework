@@ -1,4 +1,4 @@
-package com.hacker.framework;
+package com.hacker.framework.constants;
 
 /**
  * Created by hacker on 2019/4/6 0006.
