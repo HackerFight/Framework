@@ -7,6 +7,8 @@ import java.util.Map;
  */
 public class CommonQueryParam {
 
+    private String serviceName;
+
     /**
      * 请求时的参数都封装到这个对象中
      */
@@ -18,5 +20,13 @@ public class CommonQueryParam {
 
     public void setQueryConditions(Map<String, String> queryConditions) {
         this.queryConditions = queryConditions;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceName() {
+        return serviceName;
     }
 }

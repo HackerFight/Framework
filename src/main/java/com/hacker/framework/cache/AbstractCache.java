@@ -1,7 +1,7 @@
 package com.hacker.framework.cache;
 
 /**
- * Created by Administrator on 2019/3/27 0027.
+ * Created by hacker on 2019/3/27 0027.
  */
 public abstract class AbstractCache<K, V> implements CollectionCache<K, V> {
 
@@ -9,9 +9,10 @@ public abstract class AbstractCache<K, V> implements CollectionCache<K, V> {
 
     /**
      * 抽象类也定义了一个 构造器，厉害了，还是第一次遇到了
+     *
      * @param cacheConfig
      */
-    public AbstractCache(CacheConfig cacheConfig){
+    public AbstractCache(CacheConfig cacheConfig) {
         this.cacheConfig = cacheConfig;
     }
 
