@@ -24,6 +24,49 @@ public class ChannelContext {
 
     private long endTime;
 
+    /**
+     * 渠道执行失败
+     */
+    public void errorChannel(){
+        this.channelStatusEnum = ChannelStatusEnum.FAIL;
+        this.statusMsg = ChannelStatusEnum.FAIL.getStatus();
+    }
+
+    /**
+     * 渠道执行失败
+     * @param throwable
+     */
+    public void errorChannel(Throwable throwable){
+        this.channelStatusEnum = ChannelStatusEnum.FAIL;
+        this.statusMsg = throwable.getMessage();
+    }
+
+    /**
+     * 渠道执行成功
+     */
+    public void sucChannel(){
+        this.channelStatusEnum = ChannelStatusEnum.SUCCESS;
+        this.statusMsg = ChannelStatusEnum.SUCCESS.getStatus();
+    }
+
+    /**
+     * 渠道调用成功，并禁止远程调用，一般是从缓存中读到了
+     */
+    public void sucChannelWithoutRemoteInvoke(){
+        this.channelStatusEnum = ChannelStatusEnum.SUCCESS;
+        this.statusMsg = ChannelStatusEnum.SUCCESS.getStatus();
+        this.setEnableRemoteInvoke(false);
+    }
+
+    /**
+     * 开启远程调用
+     * @param netRequest
+     */
+    public void enableRemoteInvoke(NetRequest netRequest){
+        this.setEnableRemoteInvoke(true);
+        this.netRequest = netRequest;
+    }
+
     public ChannelStatusEnum getChannelStatusEnum() {
         return channelStatusEnum;
     }
@@ -31,6 +74,12 @@ public class ChannelContext {
     public void setChannelStatusEnum(ChannelStatusEnum channelStatusEnum) {
         this.channelStatusEnum = channelStatusEnum;
     }
+
+    public ChannelContext(String channelCode){
+        this.channelCode = channelCode;
+    }
+
+    public ChannelContext(){}
 
     public String getStatusMsg() {
         return statusMsg;

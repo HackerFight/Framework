@@ -10,7 +10,7 @@ import com.hacker.framework.pipeline.Pipeline;
  */
 public interface PipelineLanucher {
 
-    Pipeline lanuchDataview(Dataview dataview, PipelineContext pipelineContext);
+    void lanuchDataview(Dataview dataview, PipelineContext pipelineContext);
 
-    Pipeline lanuchChannel(Channel channel, PipelineContext pipelineContext);
+    void lanuchChannel(Channel channel, PipelineContext pipelineContext);
 }
