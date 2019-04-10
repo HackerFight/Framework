@@ -9,6 +9,7 @@ public class LogChannelComponentRunner implements ComponentRunner {
 
     @Override
     public Object runComponent(String comCode, PipelineContext pipelineContext) {
+
         return null;
     }
 }

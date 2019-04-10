@@ -28,7 +28,9 @@ public enum GdfErrorEnum implements ErrorCode{
 
     DATA_VIEW_LOAD_ERROR("DATA_VIEW_LOAD_ERROR", "试图加载错误"),
 
-    DYNAMIC_COM_LOAD_ERROR("DYNAMIC_COM_LOAD_ERROR", "动态组件加载失败");
+    DYNAMIC_COM_LOAD_ERROR("DYNAMIC_COM_LOAD_ERROR", "动态组件加载失败"),
+
+    OTS_EXCEPTION("OTS_EXCEPTION", "OTS 异常");
 
     ;
 
@@ -50,4 +52,5 @@ public enum GdfErrorEnum implements ErrorCode{
     public String getMsg() {
         return msg;
     }
+
 }

@@ -72,6 +72,18 @@ public class LoggerUtil {
     }
 
     /**
+     * 用于监控的日志，级别是info级别
+     * 方便后续做日志改造， 有些info 级别日志要动态屏蔽，的那好似监控的不能被屏蔽
+     * @param logger
+     * @param objects
+     */
+    public static void monitor(Logger logger, Object...objects){
+        if (logger.isInfoEnabled()){
+            logger.info(getLogString(objects));
+        }
+    }
+
+    /**
      * 构建日志输出内容
      * @param objects
      * @return

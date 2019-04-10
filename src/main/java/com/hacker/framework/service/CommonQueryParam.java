@@ -7,12 +7,52 @@ import java.util.Map;
  */
 public class CommonQueryParam {
 
+    private String bizNo;
+
+    private String visitBiz;
+
+    private String visitBizLine;
+
+    private String visitDomain;
+
     private String serviceName;
 
     /**
      * 请求时的参数都封装到这个对象中
      */
     private Map<String, String> queryConditions;
+
+    public String getBizNo() {
+        return bizNo;
+    }
+
+    public void setBizNo(String bizNo) {
+        this.bizNo = bizNo;
+    }
+
+    public String getVisitBiz() {
+        return visitBiz;
+    }
+
+    public void setVisitBiz(String visitBiz) {
+        this.visitBiz = visitBiz;
+    }
+
+    public String getVisitBizLine() {
+        return visitBizLine;
+    }
+
+    public void setVisitBizLine(String visitBizLine) {
+        this.visitBizLine = visitBizLine;
+    }
+
+    public String getVisitDomain() {
+        return visitDomain;
+    }
+
+    public void setVisitDomain(String visitDomain) {
+        this.visitDomain = visitDomain;
+    }
 
     public Map<String, String> getQueryConditions() {
         return queryConditions;
