@@ -52,7 +52,7 @@ public class NetTelecomComTpl extends CommonComTemplate {
             channelContext.setNetResponse(netResponse);
 
         } catch (IOException e){
-            throw new GdfException(metaComConfig.getComponentCode(), GdfErrorEnum.IO_EXCEPTION);
+            throw new GdfException(metaComConfig.getComponentCode(), GdfErrorEnum.REMOTE_IO_EXCEPTION);
         } catch (Exception e){
             throw new ComException(metaComConfig.getComponentCode(), GdfErrorEnum.TELECOM_EXCEPTION);
         }

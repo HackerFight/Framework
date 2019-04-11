@@ -34,8 +34,8 @@ public class StandardPipelineEngine implements  PipelineEngine{
         if (null == dataview){
           CommonQueryResult commonQueryResult = new CommonQueryResult();
           commonQueryResult.setSuccess(false);
-          commonQueryResult.setErrorCode(GdfErrorEnum.NO_SERVICE_AVAIABLE.getCode());
-          commonQueryResult.setErrorMessage(GdfErrorEnum.NO_SERVICE_AVAIABLE.getMsg());
+          commonQueryResult.setErrorCode(GdfErrorEnum.SERVICE_NOT_AVAIABLE.getCode());
+          commonQueryResult.setErrorMessage(GdfErrorEnum.SERVICE_NOT_AVAIABLE.getMsg());
           return commonQueryResult;
         }
 

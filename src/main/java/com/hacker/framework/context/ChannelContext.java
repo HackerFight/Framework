@@ -14,6 +14,12 @@ public class ChannelContext {
 
     private String channelCode;
 
+    private String chargeMsg;
+
+    private String chargeKey;
+
+    private String chargeExt;
+
     private NetRequest netRequest;
 
     private NetResponse netResponse;
@@ -135,5 +141,29 @@ public class ChannelContext {
 
     public void setEndTime(long endTime) {
         this.endTime = endTime;
+    }
+
+    public String getChargeMsg() {
+        return chargeMsg;
+    }
+
+    public void setChargeMsg(String chargeMsg) {
+        this.chargeMsg = chargeMsg;
+    }
+
+    public String getChargeKey() {
+        return chargeKey;
+    }
+
+    public void setChargeKey(String chargeKey) {
+        this.chargeKey = chargeKey;
+    }
+
+    public String getChargeExt() {
+        return chargeExt;
+    }
+
+    public void setChargeExt(String chargeExt) {
+        this.chargeExt = chargeExt;
     }
 }
