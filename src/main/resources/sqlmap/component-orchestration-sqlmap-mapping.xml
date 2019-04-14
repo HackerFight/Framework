@@ -2,6 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.ComponentOrchestrationDAO">
+    <resultMap id="component-orchestration-result-map" type="com.hacker.framework.repository.DO.ComponentOrchestrationDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="componentCode" column="component_code"></result>
+        <result property="relCode" column="rel_code"></result>
+        <result property="relType" column="rel_type"></result>
+        <result property="runDirection" column="run_direction"></result>
+        <result property="runOrder" column="run_order"></result>
+        <result property="context" column="context"></result>
+    </resultMap>
+
+    <sql id="component_orchestration_columns">
+        id, gmt_create, gmt_modified, component_code, rel_code, rel_type, run_direction, run_order, context
+    </sql>
+
+    <insert id="insert" parameterType="com.hacker.framework.repository.DO.ComponentOrchestrationDO"
+    useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO component_orchestration(component_code, rel_code, rel_type, run_direciton, run_order, context, gmt_create, gmt_modified)
+        VALUES (#{componentCode}, #{relCode}, #{relType}, #{runDirection}, #{runOrder}, #{contect}, now(), now())
+    </insert>
+
+    <select id="getOrchestrationByComponentCode" resultMap="component-orchestration-result-map">
+        SELECT
+        <include refid="component_orchestration_columns"></include>
+        FROM  component_orchestration
+        WHERE component_code = #{componentCode}
+        ORDER  BY  run_order ASC
+    </select>
+
+    <select id="getListByRefCode" resultMap="component-orchestration-result-map">
+        SELECT
+        <include refid="component_orchestration_columns"></include>
+        FROM  component_orchestration
+        WHERE rel_code = #{relCode}
+        AND rel_type = #{relType}
+        ORDER  BY  run_order ASC
+    </select>
+
+    <delete id="deleteByComCode">
+        DELETE FROM  compnent_orchestration WHERE  component_code = #{componentCode}
+    </delete>
+
 
 </mapper>

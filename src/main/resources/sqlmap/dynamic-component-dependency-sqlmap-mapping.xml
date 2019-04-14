@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="">
+    <resultMap id="dynamic-component-dependent-result-map" type="">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="dataTemplateId" column="data_template_id"></result>
+        <result property="templateType" column="template_type"></result>
+        <result property="tableName" column="table_name"></result>
+    </resultMap>
 
 </mapper>

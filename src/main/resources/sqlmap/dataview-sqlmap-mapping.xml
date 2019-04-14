@@ -2,6 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.DataviewDAO">
+    <resultMap id="dataview-result-map" type="com.hacker.framework.repository.DO.DataviewDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="dataviewCode" column="dataview_code"></result>
+        <result property="dataviewName" column="dataview_name"></result>
+        <result property="dataviewDesc" column="dataview_desc"></result>
+        <result property="businessOwner" column="business_owner"></result>
+        <result property="techOwner" column="tech_owner"></result>
+        <result property="reliableLevel" column="reliable_level"></result>
+        <result property="available" column="available"></result>
+        <result property="creator" column="creator"></result>
+        <result property="modifier" column="modifier"></result>
+        <result property="extInfo" column="ext_info" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <sql id="dataview_columns">
+        id, gmt_create, gmt_modified, dataview_code, dataview_name, dataview_desc,
+        business_owner, tech_owner, reliable_level, available, creator, modifier, ext_info
+    </sql>
+
+
+    <select id="getDataviewByPipelineCode" resultMap="dataview-result-map">
+        SELECT
+        <include refid="dataview_columns"></include>
+        FROM dataview
+        WHERE dataview_code = #{pipelineCode}
+    </select>
 
 </mapper>

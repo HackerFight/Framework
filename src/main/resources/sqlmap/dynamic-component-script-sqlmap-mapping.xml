@@ -2,6 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.DynamicComponentScriptDAO">
+    <resultMap id="dynamic-component-script-result-map" type="com.hacker.framework.repository.DO.DynamicComponentScriptDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="componentCode" column="component_code"></result>
+        <result property="groovyScript" column="groovy_script"></result>
+        <result property="version" column="versin"></result>
+        <result property="desc" column="desc"></result>
+    </resultMap>
 
+    <sql id="dynamic_component_script_columns">
+        id, gmt_create, gmt_modified, component_code, groovy_script, version, desc
+    </sql>
+
+    <select id="getByComponentCode" resultMap="dynamic-component-script-result-map">
+        SELECT
+        <include refid="dynamic_component_script_columns"></include>
+        FROM dynamic_component_script
+        WHERE component_code = #{componentCode}
+    </select>
+
+    <select id="getByCodeAndVersion" resultMap="dynamic-component-script-result-map">
+        SELECT
+        <include refid="dynamic_component_script_columns"></include>
+        FROM dynamic_component_script
+        WHERE component_code = #{componentCode}
+        AND version = #{version}
+    </select>
 </mapper>

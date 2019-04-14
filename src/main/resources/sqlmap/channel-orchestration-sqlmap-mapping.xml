@@ -2,6 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.ChannelOrchestrationDAO">
+    <resultMap id="channel-orchestration-result-map" type="com.hacker.framework.repository.DO.ComponentOrchestrationDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="channelCode" column="channel_code"></result>
+        <result property="channelOrder" column="channel_order" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+        <result property="dataviewCode" column="dataview_code"></result>
+    </resultMap>
 
+    <sql id="channel_orchestration_columns">
+        id, gmt_create, gmt_modified, channel_code, channel_order, dataview_code
+    </sql>
+
+    <insert id="insert" parameterType="com.hacker.framework.repository.DO.ChannelOrchestrationDO"
+     useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO channel_orchestration(
+        channel_code, channel_order, dataview_code, gmt_create, gmt_modified
+        ) VALUES (#{channelCode}, #{channelOrder}, #{dataviewCode}, now(), now())
+    </insert>
+
+    <select id="getOrchestrationByChannelCode" resultMap="">
+        SELECT
+          <include refid="channel_orchestration_columns"></include>
+        FROM channel_orchestration
+        WHERE channel_code = #{channelCode}
+    </select>
+
+    <select id="getOrchestrationByDataviewCode" resultMap="">
+        SELECT
+        <include refid="channel_orchestration_columns"/>
+        FROM channel_orchestration
+        WHERE dataview_code = #{dataviewCode}
+        ORDER BY channel_order desc
+    </select>
+
+    <delete id="deleteByCode">
+        DELETE FROM channel_orchestration WHERE channel_code = #{channelCode}
+    </delete>
 </mapper>
+

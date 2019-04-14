@@ -2,6 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.ChannelDAO">
+    <resultMap id="channel-result-map" type="com.hacker.framework.repository.DO.ChannelDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="channelCode" column="channel_code"></result>
+        <result property="channelName" column="channel_name"></result>
+        <result property="channelDesc" column="channel_desc"></result>
+    </resultMap>
+
+
+    <sql id="channel_columns">
+        id,gmt_create,gmt_modified,channel_code, channel_name, channel_desc
+    </sql>
+
+    <insert id="insert" parameterType="com.hacker.framework.repository.DO.ChannelDO"
+     useGeneratedKeys="true" keyProperty="id">
+        INSERT  INTO channel(channel_code, channel_name, channel_desc, gmt_create, gmt_modified)
+        VALUE (#{channelCode}, #{channelName}, #{channelDesc}, now(), now())
+    </insert>
+
+    <select id="getChannelByCode" parameterType="com.hacker.framework.repository.DO.ChannelDO">
+        SELECT
+        <include refid="channel_columns"/>
+        FROM channel
+        WHERE channel_code = #{channelCode}
+    </select>
+
+    <select id="getChannelsByCodeList" resultMap="channel-result-map">
+        SELECT
+        <include refid="channel_columns"></include>
+        FROM  channel
+        WHERE channel_code IN
+        <foreach collection="codeList" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getChannelMapByCodeList" resultMap="channel-result-map">
+        SELECT
+        <include refid="channel_columns"></include>
+        FROM channel
+        WHERE channel_code IN
+        <foreach collection="codeList" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <delete id="deleteByCode">
+        DELETE FROM channel WHERE  channel_code = #{channelCode}
+    </delete>
 
 </mapper>

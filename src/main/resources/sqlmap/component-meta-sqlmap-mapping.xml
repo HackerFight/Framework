@@ -2,6 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.ComponentMetaDAO">
+    <resultMap id="component-meta-result-map" type="com.hacker.framework.repository.DO.ComponentMetaDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="componentCode" column="component_code"></result>
+        <result property="componentType" column="component_type"></result>
+        <result property="configParam" column="config_param"></result>
+    </resultMap>
+
+    <sql id="component_meta_columns">
+        id,gmt_create,gmt_modified, component_code, component_type, config_param
+    </sql>
+
+    <insert id="insert" parameterType="com.hacker.framework.repository.DO.ComponentMetaDO"
+    useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO component_meta(component_code, component_type, config_param, gmt_create, gmt_modified)
+        VALUES (#{componentCode}, #{componentType}, #{configParam}, now(), now())
+    </insert>
+
+    <select id="getByTypeAndCode" resultMap="component-meta-result-map">
+        SELECT
+        <include refid="component_meta_columns"/>
+        FROM component_meta
+        WHERE component_code = #{componentCode}
+        AND component_type = #{componentType}
+    </select>
+
+
+    <select id="getByCode" resultMap="component-meta-result-map">
+        SELECT
+        <include refid="component_meta_columns"></include>
+        FROM component_meta
+        WHERE component_code = #{componentCode}
+    </select>
+
+    <delete id="deleteByCode">
+        DELETE FROM component_meta WHERE component_code = #{componentCode}
+    </delete>
 
 </mapper>

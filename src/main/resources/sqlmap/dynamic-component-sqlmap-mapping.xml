@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
+<mapper namespace="com.hacker.framework.repository.dao.DynamicComponentDAO">
+    <resultMap id="dynamic-component-result-map" type="com.hacker.framework.repository.DO.DynamicComponentDO">
+        <result property="id" column="id"></result>
+        <result property="gmtCreate" column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="gmtModified" column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP"></result>
+        <result property="componentCode" column="component_code"></result>
+        <result property="dynamicComponentType" column="dynamic_component_type"></result>
+        <result property="componentDesc" column="component_desc"></result>
+        <result property="prod" column="prod" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+        <result property="preTest" column="pre_test"></result>
+        <result property="prePercent" column="pre_percent"></result>
+    </resultMap>
 
+    <sql id="dynamic_component_columns">
+        id, gmt__create, gmt_modified, component_code, dynamic_component_type, component_desc, prod, pre_test, pre_percent
+    </sql>
+
+    <select id="getByCode" resultMap="dynamic-component-result-map">
+        SELECT
+        <include refid="dynamic_component_columns"></include>
+        FROM dynamic_component
+        WHERE component_code = #{componentCode}
+    </select>
 </mapper>
