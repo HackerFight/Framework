@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="dataviewRepository" class="com.hacker.framework.repository.DataviewRepositoryImpl"></bean>
+
+    <bean id="channelRepository" class="com.hacker.framework.repository.ChannelRepositoryImpl"></bean>
+
+    <bean id="channelOrchestrationRepository" class="com.hacker.framework.repository.ChannelOrchestrationRepositoryImpl"></bean>
+
+    <bean id="componentMetaRepository" class="com.hacker.framework.repository.ComponentMetaRepositoryImpl"></bean>
+
+    <bean id="componentOrchestrationRepository" class="com.hacker.framework.repository.ComponentOrchestrationRepositoryImpl"></bean>
+
+</beans>

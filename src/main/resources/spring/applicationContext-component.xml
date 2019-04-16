@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <bean id="standardComponentRunner" class="com.hacker.framework.component.StandardComponentRunner"></bean>
+
+    <bean id="logChannelComponentRunner" class="com.hacker.framework.component.LogChannelComponentRunner"></bean>
+
+    <bean id="logDataviewComponentRunner" class="com.hacker.framework.component.LogDataviewComponentRunner"></bean>
+
+    <bean id="standardPipelineAssember" class="com.hacker.framework.engine.StandardPipelineAssember"></bean>
+
+    <bean id="comConfigContainer" class="com.hacker.framework.component.ComConfigContainer"></bean>
+
+    <bean id="standardPipelineEngine" class="com.hacker.framework.engine.StandardPipelineEngine"></bean>
+
+    <bean id="standardPipelineLanucher" class="com.hacker.framework.engine.StandardPipelineLanucher"></bean>
+
+    <!-- 组件执行器 -->
+    <bean id="dynamicComTpl" class="com.hacker.framework.component.executor.DynamicComTpl"></bean>
+    <bean id="netTelecomComTpl" class="com.hacker.framework.component.executor.NetTelecomComTpl"></bean>
+    <bean id="defaultDispatchComTpl" class="com.hacker.framework.component.executor.DefaultDispatchComTpl"></bean>
+    <bean id="dependencyDispatchComTpl" class="com.hacker.framework.component.executor.DependencyDispatchComTpl"></bean>
+    <bean id="cacheReadComTpl" class="com.hacker.framework.component.executor.CacheReadComTpl"></bean>
+    <bean id="cacheWriteComTpl" class="com.hacker.framework.component.executor.CacheWriteComTpl"></bean>
+
+    <!-- container -->
+    <bean id="componentContainer" class="com.hacker.framework.component.ComponentContainer">
+        <property name="commonComTemplateMap">
+            <map>
+                <entry key="dynamic" value-ref="dynamicComTpl"></entry>
+                <entry key="net_telcom" value-ref="netTelecomComTpl"></entry>
+                <entry key="default_dispatch" value-ref="defaultDispatchComTpl"></entry>
+                <entry key="dependency_dispatch" value-ref="dependencyDispatchComTpl"></entry>
+                <entry key="cache_read" value-ref="cacheReadComTpl"></entry>
+                <entry key="cache_write" value-ref="cacheWriteComTpl"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- loader -->
+    <bean id="pipelineDataLoader" class="com.hacker.framework.cache.loader.PipelineComConfigLoader"></bean>
+    <bean id="dynamicComConfigLoader" class="com.hacker.framework.cache.loader.DynamicComConfigLoader"></bean>
+    <bean id="metaComConfigLoader" class="com.hacker.framework.cache.loader.MetaComConfigLoader"></bean>
+</beans>

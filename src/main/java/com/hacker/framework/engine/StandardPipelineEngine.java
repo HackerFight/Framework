@@ -7,6 +7,7 @@ import com.hacker.framework.pipeline.Dataview;
 import com.hacker.framework.pipeline.Pipeline;
 import com.hacker.framework.service.CommonQueryParam;
 import com.hacker.framework.service.CommonQueryResult;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
@@ -15,8 +16,10 @@ import java.util.Map;
  */
 public class StandardPipelineEngine implements  PipelineEngine{
 
+    @Autowired
     private PipelineAssember pipelineAssember;
 
+    @Autowired
     private PipelineLanucher pipelineLanucher;
 
     @Override
@@ -54,13 +57,5 @@ public class StandardPipelineEngine implements  PipelineEngine{
         commonQueryResult = ctx.getCommonQueryResult();
 
         return commonQueryResult;
-    }
-
-    public void setPipelineAssember(PipelineAssember pipelineAssember) {
-        this.pipelineAssember = pipelineAssember;
-    }
-
-    public void setPipelineLanucher(PipelineLanucher pipelineLanucher) {
-        this.pipelineLanucher = pipelineLanucher;
     }
 }

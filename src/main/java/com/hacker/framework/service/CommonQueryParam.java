@@ -22,6 +22,16 @@ public class CommonQueryParam {
      */
     private Map<String, String> queryConditions;
 
+    private int cacheInterval = -1;
+
+    public int getCacheInterval() {
+        return cacheInterval;
+    }
+
+    public void setCacheInterval(int cacheInterval) {
+        this.cacheInterval = cacheInterval;
+    }
+
     public String getBizNo() {
         return bizNo;
     }
