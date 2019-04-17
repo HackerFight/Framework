@@ -10,7 +10,6 @@ target/
 deploy/db
 .idea
 *_res.yaml
-cache
 
 *.log
 *.log.*

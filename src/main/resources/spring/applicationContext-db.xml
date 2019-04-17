@@ -13,6 +13,15 @@
         <property name="password" value="${jdbc.password}"></property>
         <property name="url" value="${jdbc.url}"></property>
         <property name="initialSize" value="${jdbc.initialSize}"></property>
+        <property name="maxActive" value="${jdbc.maxActive}"></property>
+        <property name="minIdle" value="${jdbc.minldle}"></property>
+        <property name="maxWait" value="${jdbc.maxWait}"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"></property>
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableldleTimeMillis}"></property>
+        <property name="validationQuery" value="${jdbc.validationQuery}"></property>
+        <property name="testWhileIdle" value="${jdbc.testWhileldle}"></property>
+        <property name="testOnBorrow" value="${jdbc.testOnBorrow}"></property>
+        <property name="testOnReturn" value="${jdbc.testOnReturn}"></property>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
