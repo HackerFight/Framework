@@ -26,7 +26,8 @@ public class StartTest extends CommonBaseTest{
     private ApplicationContext applicationContext;
 
     /**
-     * 第一次运行报错：java.lang.NoSuchMethodError: org.junit.platform.engine.EngineDiscoveryReque
+     * 第一次运行报错：java.lang.NoSuchMethodError: org.junit.platform.engine.EngineDiscoveryRequest
+     * 一直没有解决
      */
     @Test
     public void runTest(){
