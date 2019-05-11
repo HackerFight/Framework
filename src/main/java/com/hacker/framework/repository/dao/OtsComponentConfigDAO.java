@@ -9,5 +9,10 @@ import com.hacker.framework.repository.DO.OtsComponentConfigDO;
  */
 public interface OtsComponentConfigDAO {
 
+    /**
+     * 通过组件编码获取OTS配置
+     * @param componentCode
+     * @return
+     */
     OtsComponentConfigDO getByComponentCode(String componentCode);
 }

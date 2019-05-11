@@ -7,5 +7,10 @@ import com.hacker.framework.repository.DO.DynamicComponentDO;
  */
 public interface DynamicComponentDAO {
 
+    /**
+     * 同故宫组件编码查询动态组件
+     * @param componentCode
+     * @return
+     */
     DynamicComponentDO getByCode(String componentCode);
 }

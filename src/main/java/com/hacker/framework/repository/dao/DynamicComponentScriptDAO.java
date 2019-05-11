@@ -2,6 +2,7 @@ package com.hacker.framework.repository.dao;
 
 import com.hacker.framework.repository.DO.DynamicComponentDO;
 import com.hacker.framework.repository.DO.DynamicComponentScriptDO;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Created by hacker on 2019/4/7 0007.
@@ -16,5 +17,6 @@ public interface DynamicComponentScriptDAO {
      * @param version
      * @return
      */
-    DynamicComponentScriptDO getByCodeAndVersion(String componentCode, Integer version);
+    DynamicComponentScriptDO getByCodeAndVersion(@Param("componentCode") String componentCode,
+                                                 @Param("version") Integer version);
 }

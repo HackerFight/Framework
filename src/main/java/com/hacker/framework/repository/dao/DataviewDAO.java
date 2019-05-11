@@ -8,5 +8,10 @@ import com.hacker.framework.repository.DO.DataviewDO;
  */
 public interface DataviewDAO {
 
+    /**
+     * 通过链路编码获取视图对象（视图-链路一对一）
+     * @param pipelineCode
+     * @return
+     */
     DataviewDO getByPipelineCode(String pipelineCode);
 }
